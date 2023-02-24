@@ -1,9 +1,19 @@
 @import '../node_modules/bulma/bulma.sass';
+@import './assets/fontawesome/scss/brands.scss';
+@import './assets/fontawesome/scss/fontawesome.scss';
+@import './assets/fontawesome/scss/regular.scss';
+@import './assets/fontawesome/scss/solid.scss';
 html,
 body {
 	height: 100%;
+	overflow: hidden;
 }
 body {
 	margin: 0;
 	font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+@media screen and (max-width: 650px) { 
+    .is-fluid {
+        padding: 0 !important;
+    }
 }
