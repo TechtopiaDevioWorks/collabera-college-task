@@ -4,16 +4,20 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { CollegeCardModule } from '@shared/college-card/college-card.module';
+import { DashboardCollegeFilterComponent } from './features/dashboard-college-filter/dashboard-college-filter.component';
+import { CoreModule } from '@core/core.module';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    DashboardCollegeFilterComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    CollegeCardModule
+    CollegeCardModule,
+    CoreModule
   ]
 })
 export class DashboardModule { }

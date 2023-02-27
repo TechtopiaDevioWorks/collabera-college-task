@@ -1,4 +1,9 @@
-<div class="container is-fluid is-flex">
-    <app-college-card></app-college-card>
+<div class="container is-fluid is-flex is-flex-direction-column">
+    <section class="section">
+       <app-dashboard-college-filter (filterOut)="onFilterChange($event)"></app-dashboard-college-filter>
+      </section>
+      <div class="is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-around">
+        <app-college-card *ngFor="let item of collegeList" [college]="item"></app-college-card>
+      </div>
 
 </div>

@@ -1,0 +1,56 @@
+<div class="container is-flex is-flex-direction-row is-flex-wrap-wrap">
+    <form [formGroup]="filterForm" class="container is-flex is-flex-direction-row is-flex-wrap-wrap">
+        <!--Region-->
+		<div class="field m-2">
+			<label class="label">Region</label>
+			<div class="control">
+				<div class="select">
+					<select formControlName="region">
+                        <option [value]=""></option>
+						<option *ngFor="let item of regionList" [value]="item">{{ item }}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+        <!--Branch-->
+		<div class="field m-2">
+			<label class="label">Branch</label>
+			<div class="control">
+				<div class="select">
+					<select formControlName="branch">
+                        <option [value]=""></option>
+						<option *ngFor="let item of branchList" [value]="item">{{ item }}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+        <!--minScore-->
+		<div class="field m-2">
+			<label class="label">Min score</label>
+			<div class="control">
+				<input
+					class="input"
+					type="number"
+					placeholder="0"
+					formControlName="minScore"
+					[class.is-danger]="
+						this.filterForm.get('minScore')?.errors && !this.filterForm.get('minScore')?.pristine
+					" />
+			</div>
+		</div>
+        <!--maxScore-->
+		<div class="field m-2">
+			<label class="label">Max score</label>
+			<div class="control">
+				<input
+					class="input"
+					type="number"
+					placeholder="100"
+					formControlName="maxScore"
+					[class.is-danger]="
+						this.filterForm.get('maxScore')?.errors && !this.filterForm.get('maxScore')?.pristine
+					" />
+			</div>
+		</div>
+    </form>
+</div>
