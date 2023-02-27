@@ -6,41 +6,39 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class LoggedinGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad, CanMatch {
-
+export class NotloggedinGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad, CanMatch {
   constructor(private _user: UserManagerService, private _router: Router) {
 
   }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this._user.loggedIn.value
+    return !this._user.loggedIn.value;
   }
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      return this._user.loggedIn.value
+    return !this._user.loggedIn.value;
   }
   canDeactivate(
     component: unknown,
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      return this._user.loggedIn.value
+    return !this._user.loggedIn.value;
   }
   canMatch(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const status = this._user.loggedIn.value;
-      if(status){
-        return true
-      } else {
-        this._router.navigate(['/login'])
-        return false;
+      if(status) {
+        this._router.navigate(['/dashboard'])
+        return false
       }
+    return true;
   }canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      return this._user.loggedIn.value
+    return !this._user.loggedIn.value;
   }
 }

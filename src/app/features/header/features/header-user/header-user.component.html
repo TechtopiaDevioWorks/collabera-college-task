@@ -1,0 +1,19 @@
+<ng-container *ngIf="isUserLoggedIn">
+    <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link is-arrowless mobile-hidden"><i class="fa-solid fa-user"></i></a>
+
+        <div class="navbar-dropdown is-right">
+        <a class="navbar-item" routerLink="/profile" routerLinkActive="is-active">{{username}}</a>
+        <hr class="navbar-divider">
+        <a class="navbar-item" (click)="onLogoutClick()">Logout</a>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="!isUserLoggedIn">
+	<div class="navbar-item">
+		<div class="buttons">
+			<a class="button is-primary" routerLink="/register" routerLinkActive="is-active"> Sign up </a>
+			<a class="button is-light" routerLink="/login" routerLinkActive="is-active"> Log in </a>
+		</div>
+	</div>
+</ng-container>

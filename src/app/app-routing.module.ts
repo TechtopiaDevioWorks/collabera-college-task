@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoggedinGuard } from '@core/guards/loggedin.guard';
+import { NotloggedinGuard } from '@core/guards/notloggedin.guard';
 
 const routes: Routes = [
 	{
@@ -23,9 +25,20 @@ const routes: Routes = [
 		path: 'terms-conditions',
 		loadChildren: () => import('./pages/terms-conditions/terms-conditions.module').then((m) => m.TermsConditionsModule),
 	},
-  {
+	{
+		path: 'profile',
+		loadChildren: () => import('./pages/profile/profile.module').then((m) => m.ProfileModule),
+		canMatch: [LoggedinGuard]
+	},
+	{
 		path: 'login',
 		loadChildren: () => import('./pages/login/login.module').then((m) => m.LoginModule),
+		canMatch: [NotloggedinGuard]
+	},
+	{
+		path: 'register',
+		loadChildren: () => import('./pages/register/register.module').then((m) => m.RegisterModule),
+		canMatch: [NotloggedinGuard]
 	},
 	{
 		path: 'not-found',
@@ -37,9 +50,8 @@ const routes: Routes = [
 	},
 ];
 
-
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
-  exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
+	exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

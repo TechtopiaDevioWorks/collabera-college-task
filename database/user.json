@@ -1,0 +1,11 @@
+[
+    { "id": 0, 
+    "username": "amanea", 
+    "firstname": "Alin", 
+    "lastname": "Manea",
+    "password": "t123456",
+    "token": "test",
+    "percentage":80,
+    "branch": "test12"
+}
+]

@@ -1,20 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserManagerService } from './services/user-manager.service';
-import { CollegeManagerService } from './services/college-manager.service';
+import { HttpClientModule } from '@angular/common/http'
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule, RouterModule, ReactiveFormsModule
-  ],
-  exports: [
-    CommonModule, RouterModule, ReactiveFormsModule
-  ],
-  providers: [UserManagerService, CollegeManagerService]
+	declarations: [],
+	imports: [CommonModule, RouterModule, ReactiveFormsModule, HttpClientModule],
+	exports: [CommonModule, RouterModule, ReactiveFormsModule, HttpClientModule],
+	providers: [],
 })
-export class CoreModule { }
+export class CoreModule {}

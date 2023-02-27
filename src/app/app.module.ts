@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from './features/layout/layout.module';
+import { UserManagerService } from '@core/services/user-manager.service';
+import { CollegeManagerService } from '@core/services/college-manager.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,9 @@ import { LayoutModule } from './features/layout/layout.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    LayoutModule
+    LayoutModule,
   ],
-  providers: [],
+  providers: [UserManagerService, CollegeManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
