@@ -26,6 +26,10 @@ const routes: Routes = [
 		loadChildren: () => import('./pages/terms-conditions/terms-conditions.module').then((m) => m.TermsConditionsModule),
 	},
 	{
+		path: 'colleges',
+		loadChildren: () => import('./pages/college/college.module').then((m) => m.CollegeModule),
+	},
+	{
 		path: 'profile',
 		loadChildren: () => import('./pages/profile/profile.module').then((m) => m.ProfileModule),
 		canMatch: [LoggedinGuard]

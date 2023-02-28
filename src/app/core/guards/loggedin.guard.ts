@@ -38,7 +38,8 @@ export class LoggedinGuard implements CanActivate, CanActivateChild, CanDeactiva
         this._router.navigate(['/login'])
         return false;
       }
-  }canLoad(
+  }
+  canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       return this._user.loggedIn.value

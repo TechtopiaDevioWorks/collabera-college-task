@@ -36,7 +36,8 @@ export class NotloggedinGuard implements CanActivate, CanActivateChild, CanDeact
         return false
       }
     return true;
-  }canLoad(
+  }
+  canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return !this._user.loggedIn.value;

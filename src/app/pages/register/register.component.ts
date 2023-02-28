@@ -11,7 +11,7 @@ import { UserManagerService } from '@core/services/user-manager.service';
 })
 export class RegisterComponent implements OnInit {
 	registerForm = new FormGroup({
-		username: new FormControl('', [Validators.required, Validators.min(2), Validators.max(25)]),
+		username: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]),
 		firstName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]),
 		lastName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]),
 		email: new FormControl('', [Validators.required, Validators.email]),

@@ -1,1 +1,17 @@
-<p>college works!</p>
+<div class="container is-fluid is-flex is-flex-direction-column">
+    <section class="p-2 m-2">
+        <h1 class="title is-4">Colleges you can apply to</h1>
+        <h2 class="subtitle is-6">
+           Based on your information, these are the colleges you can apply to. You can change your information from <a routerLink="/profile">profile</a>.
+          </h2>
+      </section>
+      <mat-paginator [length]="collegeListLength"
+              [pageSize]="pageSize"
+              (page)="onPaginatorChange($event)"
+              [pageSizeOptions]="[5, 10, 25]"
+              aria-label="Select page">
+    </mat-paginator>
+      <div class="is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-around">
+        <app-college-card *ngFor="let item of collegeList" [college]="item"></app-college-card>
+      </div>
+</div>

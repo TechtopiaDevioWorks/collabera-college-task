@@ -1,9 +1,20 @@
 <div class="container is-fluid is-flex is-flex-direction-column">
-    <section class="section">
-       <app-dashboard-college-filter (filterOut)="onFilterChange($event)"></app-dashboard-college-filter>
-      </section>
-      <div class="is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-around">
-        <app-college-card *ngFor="let item of collegeList" [college]="item"></app-college-card>
-      </div>
-
+	<section class="section">
+		<div class="banner-advertisment" (click)="onBannerClick()">
+			<img src="../../../assets/5256934.jpg" />
+		</div>
+	</section>
+	<section class="section">
+		<app-dashboard-college-filter (filterOut)="onFilterChange($event)"></app-dashboard-college-filter>
+	</section>
+	<mat-paginator
+		[length]="collegeListLength"
+		[pageSize]="pageSize"
+		(page)="onPaginatorChange($event)"
+		[pageSizeOptions]="[5, 10, 25]"
+		aria-label="Select page">
+	</mat-paginator>
+	<div class="is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-around">
+		<app-college-card *ngFor="let item of collegeList" [college]="item"></app-college-card>
+	</div>
 </div>

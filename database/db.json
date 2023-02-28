@@ -7,9 +7,20 @@
       "lastname": "Manea",
       "password": "123456",
       "email": "amanea@techtopia.ro",
-      "token": "grHlchb3AnmONG0MBGiBlrmW7M7J6x",
+      "token": "9PfkgAY3Fu0cht4e9J6CHeJyRPPkYh",
       "percentage": 90,
-      "branch": "Chemical Engineering"
+      "branch": "Information Technology"
+    },
+    {
+      "username": "testuser",
+      "firstname": "Test",
+      "lastname": "User",
+      "email": "test.user@go.ro",
+      "password": "123456",
+      "branch": "Electronics Engineering",
+      "percentage": 90,
+      "id": 1,
+      "token": "mTr0ikkMR7jRy1SC9keoCApNjsCAJe"
     }
   ],
   "college": [

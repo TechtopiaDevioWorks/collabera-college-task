@@ -10,7 +10,7 @@ import { UserManagerService } from '@core/services/user-manager.service';
 })
 export class LoginComponent {
   loginForm = new FormGroup( {
-    username: new FormControl('', [Validators.required, Validators.min(2), Validators.max(25)]),
+    username: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]),
     password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(25)]),
   })
   requestLoading = false;

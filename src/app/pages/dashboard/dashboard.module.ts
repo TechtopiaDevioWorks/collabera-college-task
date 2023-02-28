@@ -6,7 +6,7 @@ import { DashboardComponent } from './dashboard.component';
 import { CollegeCardModule } from '@shared/college-card/college-card.module';
 import { DashboardCollegeFilterComponent } from './features/dashboard-college-filter/dashboard-college-filter.component';
 import { CoreModule } from '@core/core.module';
-
+import {MatPaginatorModule} from '@angular/material/paginator'
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { CoreModule } from '@core/core.module';
     CommonModule,
     DashboardRoutingModule,
     CollegeCardModule,
-    CoreModule
+    CoreModule,
+    MatPaginatorModule
   ]
 })
 export class DashboardModule { }

@@ -23,7 +23,7 @@
 				</span>
 				<span>Dashboard</span>
 			</a>
-            <a class="navbar-item is-tab" routerLink="/colleges" routerLinkActive="is-active" *ngIf="isUserLoggedIn">
+            <a class="navbar-item is-tab" routerLink="/colleges" routerLinkActive="is-active" *ngIf="isUserLoggedIn" [queryParams]="{user: 'true'}">
 				<span class="icon has-text-primary">
 					<i class="fa-solid fa-graduation-cap"></i>
 				</span>

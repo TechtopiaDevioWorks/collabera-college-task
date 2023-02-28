@@ -10,12 +10,12 @@ import { UserManagerService } from '@core/services/user-manager.service';
 })
 export class ProfileComponent implements OnInit {
 	profileForm = new FormGroup({
-		username: new FormControl('', [Validators.required, Validators.min(2), Validators.max(25)]),
+		username: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]),
 		firstName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]),
 		lastName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]),
 		email: new FormControl('', [Validators.required, Validators.email]),
 		branch: new FormControl<null | string>(null, [Validators.required]),
-		percentage: new FormControl<null | number>(null, [Validators.required]),
+		percentage: new FormControl<null | number>(null, [Validators.required, Validators.min(0), Validators.max(100)]),
 	});
 	branchList: string[] = [];
   fieldInEdit: string|null = null;

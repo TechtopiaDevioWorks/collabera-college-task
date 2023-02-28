@@ -1,1 +1,148 @@
-<p>contact works!</p>
+<div class="container is-max-desktop m-auto p-2" >
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="field">
+            <label class="label">First name</label>
+            <div class="control">
+                <input
+                    class="input"
+                    type="text"
+                    placeholder="John"
+                    formControlName="firstName"
+                    [class.is-danger]="
+                        this.contactForm.get('firstName')?.errors && !this.contactForm.get('firstName')?.pristine
+                    " />
+            </div>
+            <p
+                class="help is-danger"
+                *ngIf="!this.contactForm.get('firstName')?.pristine && this.contactForm.get('firstName')?.hasError('required')">
+                First name is required.
+            </p>
+            <p
+                class="help is-danger"
+                *ngIf="!this.contactForm.get('firstName')?.pristine && (this.contactForm.get('firstName')?.hasError('maxlength') || this.contactForm.get('firstName')?.hasError('minlength'))">
+                First name must be between 2 and 25 characters.
+            </p>
+        </div>
+        <div class="field">
+            <label class="label">Last name</label>
+            <div class="control">
+                <input
+                    class="input"
+                    type="text"
+                    placeholder="Doe"
+                    formControlName="lastName"
+                    [class.is-danger]="
+                        this.contactForm.get('lastName')?.errors && !this.contactForm.get('lastName')?.pristine
+                    " />
+            </div>
+    <p
+    class="help is-danger"
+    *ngIf="!this.contactForm.get('lastName')?.pristine && this.contactForm.get('lastName')?.hasError('required')">
+    Last name is required.
+  </p>
+  <p
+    class="help is-danger"
+    *ngIf="!this.contactForm.get('lastName')?.pristine && (this.contactForm.get('lastName')?.hasError('maxlength') || this.contactForm.get('lastName')?.hasError('minlength'))">
+    Last name must be between 2 and 25 characters.
+  </p>
+        </div>
+        <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+                <input
+                    class="input"
+                    type="email"
+                    placeholder="john.doe@company.com"
+                    formControlName="email"
+                    [class.is-danger]="this.contactForm.get('email')?.errors && !this.contactForm.get('email')?.pristine" />
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i
+                        class="fas fa-exclamation-triangle"
+                        *ngIf="this.contactForm.get('email')?.errors && !this.contactForm.get('email')?.pristine"></i>
+                </span>
+            </div>
+            <p
+                class="help is-danger"
+                *ngIf="!this.contactForm.get('email')?.pristine && this.contactForm.get('email')?.hasError('required')">
+                Email is required.
+            </p>
+            <p
+                class="help is-danger"
+                *ngIf="!this.contactForm.get('email')?.pristine && this.contactForm.get('email')?.hasError('email')">
+                Email is invalid.
+            </p>
+        </div>
+        <div class="field">
+            <label class="label">Subject</label>
+            <div class="control">
+                <input
+                    class="input"
+                    type="text"
+                    placeholder="Some subject"
+                    formControlName="subject"
+                    [class.is-danger]="this.contactForm.get('subject')?.errors && !this.contactForm.get('subject')?.pristine" />
+            </div>
+    <p
+    class="help is-danger"
+    *ngIf="!this.contactForm.get('subject')?.pristine && this.contactForm.get('subject')?.hasError('required')">
+    Subject is required.
+  </p>
+  <p
+    class="help is-danger"
+    *ngIf="!this.contactForm.get('subject')?.pristine && (this.contactForm.get('subject')?.hasError('maxlength') || this.contactForm.get('subject')?.hasError('minlength'))">
+    Subject must be between 5 and 50 characters.
+  </p>
+        </div>
+
+        <div class="field">
+            <label class="label">Message</label>
+            <div class="control">
+                <textarea
+                    class="textarea"
+                    placeholder="Write your message"
+                    formControlName="message"
+                    [class.is-danger]="
+                        this.contactForm.get('message')?.errors && !this.contactForm.get('message')?.pristine
+                    "></textarea>
+            </div>
+    <p
+    class="help is-danger"
+    *ngIf="!this.contactForm.get('message')?.pristine && this.contactForm.get('message')?.hasError('required')">
+    Message is required.
+  </p>
+  <p
+    class="help is-danger"
+    *ngIf="!this.contactForm.get('message')?.pristine && (this.contactForm.get('message')?.hasError('maxlength') || this.contactForm.get('message')?.hasError('minlength'))">
+    Message must be between 5 and 500 characters.
+  </p>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input
+                        type="checkbox"
+                        formControlName="aggrement"
+                        [class.is-danger]="
+                            this.contactForm.get('aggrement')?.errors && !this.contactForm.get('aggrement')?.pristine
+                        " />
+                    I agree to the <a routerLink="/terms-conditions">terms and conditions</a>
+                </label>
+            </div>
+    <p
+    class="help is-danger"
+    *ngIf="!this.contactForm.get('aggrement')?.pristine && this.contactForm.get('aggrement')?.hasError('required')">
+    You must agree.
+  </p>
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button type="submit" class="button is-link" [disabled]="!contactForm.valid">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

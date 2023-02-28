@@ -1,0 +1,18 @@
+<div
+	class="card discover-more-container"
+	[class.discover-more-container-middle]="textLocation === 'middle'"
+	[class.discover-more-container-middle-overlay]="textLocation === 'middle-overlay'"
+	[class.discover-more-container-reversed]="textLocation === 'left'">
+	<div class="image-container">
+		<img *ngIf="imgUrl" [src]="imgUrl" />
+	</div>
+	<div class="information-container">
+		<h6 class="subtitle is-5" *ngIf="overheading">{{ overheading }}</h6>
+		<h1 class="title is-1 is-spaced" *ngIf="heading" [class.has-text-centered]="textLocation === 'middle'">{{ heading }}</h1>
+		<h3 class="subtitle is-3" *ngIf="subheading">{{ subheading }}</h3>
+		<p class="subtitle is-5" *ngIf="description">
+			{{ description }}
+		</p>
+		<button class="button is-medium is-outlined" [routerLink]="buttonRoute" *ngIf="buttonRoute">Discover</button>
+	</div>
+</div>
